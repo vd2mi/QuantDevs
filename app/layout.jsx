@@ -1,6 +1,6 @@
 import "./globals.css";
 export const metadata = {
-  title: "Financial Document Analyzer",
+  title: "Spot Light",
   description: "Upload your bank statement and get instant credit scoring, spending analysis, and BNPL exposure insights.",
 };
 export default function RootLayout({ children }) {
