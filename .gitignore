@@ -1,0 +1,67 @@
+# Environment variables
+.env
+.env.local
+.env*.local
+backend/.env
+*.env
+
+# Dependencies
+node_modules/
+backend/node_modules/
+.pnp
+.pnp.js
+
+# Build outputs
+.next/
+out/
+dist/
+build/
+.vercel
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Editor
+.vscode/
+.idea/
+*.sublime-*
+*.code-workspace
+
+# Testing
+coverage/
+.nyc_output/
+
+# Temporary files
+*.tmp
+.cache/
+.temp/
+
+# Windows batch files (keep deployment prep script)
+# *.bat
+!prepare-deploy.bat
+
+# Hugging Face
+.hf/
+*.hf
+
+# Misc
+*.pem
+.env.backup
+

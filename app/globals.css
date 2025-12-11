@@ -1,0 +1,250 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 4%;
+  --foreground: 0 0% 100%;
+  --card: 0 0% 7%;
+  --card-foreground: 0 0% 100%;
+  --popover: 0 0% 7%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 263 70% 50%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 15%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 0 0% 15%;
+  --muted-foreground: 0 0% 65%;
+  --accent: 0 0% 15%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 62% 50%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 0 0% 15%;
+  --input: 0 0% 15%;
+  --ring: 263 70% 50%;
+  --radius: 0.75rem;
+
+  /* Tremor color tokens */
+  --color-emerald-500: #10b981;
+  --color-rose-500: #f43f5e;
+  --color-violet-500: #8b5cf6;
+  --color-cyan-500: #22d3ee;
+}
+
+@keyframes gradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: #0a0a0a;
+  color: white;
+}
+
+/* ============================================
+   TREMOR CHART DARK MODE FIXES
+   ============================================ */
+
+/* Grid lines - visible but subtle */
+.recharts-cartesian-grid line {
+  stroke: #374151 !important;
+  stroke-opacity: 0.5 !important;
+}
+
+/* Axis tick values - readable gray */
+.recharts-cartesian-axis-tick-value {
+  fill: #9ca3af !important;
+  font-size: 12px !important;
+}
+
+/* ============================================
+   BAR CHART COLORS - FORCE SPECIFIC COLORS
+   ============================================ */
+
+/* Target bars by their fill color class from Tremor */
+/* Emerald/Green bars - Income */
+.recharts-rectangle[fill="#10b981"],
+.recharts-bar-rectangle[fill="#10b981"],
+rect[fill="#10b981"] {
+  fill: #10b981 !important;
+}
+
+/* Rose/Red bars - Spending */  
+.recharts-rectangle[fill="#f43f5e"],
+.recharts-bar-rectangle[fill="#f43f5e"],
+rect[fill="#f43f5e"] {
+  fill: #f43f5e !important;
+}
+
+/* Force colors on bar layers by index */
+.recharts-layer.recharts-bar:nth-of-type(1) rect {
+  fill: #10b981 !important;
+}
+
+.recharts-layer.recharts-bar:nth-of-type(2) rect {
+  fill: #f43f5e !important;
+}
+
+/* Tremor specific - target by data color */
+[class*="fill-emerald"] rect,
+.tremor-BarChart rect[class*="emerald"] {
+  fill: #10b981 !important;
+}
+
+[class*="fill-rose"] rect,
+.tremor-BarChart rect[class*="rose"] {
+  fill: #f43f5e !important;
+}
+
+/* Bar styling */
+.recharts-bar-rectangle {
+  rx: 4 !important;
+  ry: 4 !important;
+}
+
+/* ============================================
+   LINE CHART 
+   ============================================ */
+
+/* Line stroke - cyan color */
+.recharts-line .recharts-curve,
+.recharts-line-curve,
+.recharts-line path {
+  stroke: #22d3ee !important;
+  stroke-width: 3 !important;
+}
+
+/* Line dots */
+.recharts-line-dots .recharts-dot,
+.recharts-dot circle {
+  fill: #22d3ee !important;
+  stroke: #22d3ee !important;
+}
+
+/* Active dot on hover */
+.recharts-active-dot circle {
+  fill: #67e8f9 !important;
+  stroke: #ffffff !important;
+  stroke-width: 2 !important;
+  r: 6 !important;
+}
+
+/* ============================================
+   TOOLTIPS
+   ============================================ */
+
+.recharts-tooltip-wrapper .recharts-default-tooltip {
+  background-color: #1f2937 !important;
+  border: 1px solid #374151 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5) !important;
+  padding: 12px !important;
+}
+
+.recharts-tooltip-label {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  margin-bottom: 4px !important;
+}
+
+.recharts-tooltip-item {
+  color: #e5e7eb !important;
+  padding: 2px 0 !important;
+}
+
+.recharts-tooltip-item-name {
+  color: #9ca3af !important;
+}
+
+.recharts-tooltip-item-value {
+  color: #ffffff !important;
+  font-weight: 500 !important;
+}
+
+/* ============================================
+   LEGEND
+   ============================================ */
+
+.recharts-legend-wrapper {
+  padding-top: 16px !important;
+}
+
+.recharts-legend-item-text {
+  color: #d1d5db !important;
+}
+
+/* Legend color indicators - match bar colors */
+.recharts-legend-item:nth-of-type(1) .recharts-surface,
+.recharts-legend-item:nth-of-type(1) svg {
+  fill: #10b981 !important;
+  color: #10b981 !important;
+}
+
+.recharts-legend-item:nth-of-type(2) .recharts-surface,
+.recharts-legend-item:nth-of-type(2) svg {
+  fill: #f43f5e !important;
+  color: #f43f5e !important;
+}
+
+/* ============================================
+   TREMOR CARD OVERRIDES
+   ============================================ */
+
+[class*="tremor-Card"] {
+  --tw-ring-color: transparent !important;
+  background-color: transparent !important;
+}
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(23 23 23);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(64 64 64);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(82 82 82);
+}
+
+/* Selection */
+::selection {
+  background-color: rgba(139, 92, 246, 0.3);
+  color: white;
+}
+
+/* ============================================
+   FORCE BAR COLORS VIA STYLE ATTRIBUTE OVERRIDE
+   ============================================ */
+
+/* This targets Tremor's inline styles */
+#income-spending-chart .recharts-bar:first-of-type .recharts-bar-rectangle {
+  fill: #10b981 !important;
+}
+
+#income-spending-chart .recharts-bar:last-of-type .recharts-bar-rectangle {
+  fill: #f43f5e !important;
+}
