@@ -36,7 +36,7 @@ export default function HomePage() {
           className="text-center mb-8"
         >
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-3">
-            Financial Document Analyzer
+            Spotlight
           </h1>
           <p className="text-neutral-400 text-lg max-w-xl mx-auto">
             Upload your bank statement and get instant credit scoring, spending analysis, and BNPL exposure insights.
