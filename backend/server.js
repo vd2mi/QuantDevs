@@ -12,13 +12,10 @@ const computeFeatures = require("./helpers/computeFeatures");
 const app = express();
 
 // CORS configuration for production
+// Allow all origins in production (HF Spaces) - Vercel domains vary
 const corsOptions = {
   origin: process.env.NODE_ENV === 'production' 
-    ? [
-        'https://*.vercel.app',
-        'http://localhost:3000',
-        process.env.FRONTEND_URL
-      ].filter(Boolean)
+    ? true // Allow all origins in production (HF Spaces)
     : '*',
   credentials: true,
   optionsSuccessStatus: 200
